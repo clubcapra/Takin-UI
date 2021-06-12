@@ -5,6 +5,7 @@ import { NoFeed } from '@/renderer/components/Feed/Feeds/NoFeed'
 import { UrdfFeed } from '@/renderer/components/Feed/Feeds/UrdfFeed'
 import { EmptyFeed } from '@/renderer/components/Feed/Feeds/EmptyFeed'
 import { GraphFeed } from '@/renderer/components/Feed/Feeds/GraphFeed'
+import { QrFeed } from '@/renderer/components/Feed/Feeds/QRFeed'
 
 interface FeedViewProps {
   feed: FeedType
@@ -20,6 +21,8 @@ export const FeedView: FC<FeedViewProps> = ({ feed }) => {
       return <UrdfFeed feed={feed} />
     case FeedTypeEnum.Graph:
       return <GraphFeed feed={feed} />
+    case FeedTypeEnum.QR:
+      return <QrFeed />
     default:
       return <NoFeed text="NOT SUPPORTED" />
   }

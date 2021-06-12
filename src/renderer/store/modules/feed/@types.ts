@@ -21,6 +21,7 @@ export enum FeedTypeEnum {
   Camera,
   Urdf,
   Graph,
+  QR,
 }
 
 export enum CameraType {
@@ -34,7 +35,12 @@ export interface FeedCollection {
   [feedId: string]: FeedType
 }
 
-export type FeedType = IEmptyFeed | ICameraFeed | IUrdfFeed | IGraphFeed
+export type FeedType =
+  | IEmptyFeed
+  | ICameraFeed
+  | IUrdfFeed
+  | IGraphFeed
+  | IQRFeed
 
 interface IFeed {
   type: FeedTypeEnum
@@ -72,4 +78,9 @@ export interface IGraphFeed extends IFeed {
 export interface IGraphData {
   topic: TopicOptions
   name: string
+}
+
+export interface IQRFeed extends IFeed {
+  type: FeedTypeEnum.QR
+  id: string
 }
