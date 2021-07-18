@@ -92,7 +92,7 @@ const UrdfDescriptionSection = () => {
 }
 
 const TerminalConnection = () => {
-  const [state] = useService(terminalService)
+  const [state] = useActor(terminalService)
 
   const username = state.context.username
   const password = state.context.password
